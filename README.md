@@ -1,5 +1,12 @@
 Set of CLI tools for rito manifest and bundle files
 
+Run multithreaded like this:
+```sh
+rman-dl.exe -l "none|windows|en_us" --cdn http://lol.secure.dyn.riotcdn.net/channels/public --jobs 12 --cdn-workers 3 15.18.manifest
+```
+
+The client should download with `jobs * cdn_workers` connections so keep that in mind.
+
 ```sh
 Usage: rbun-chk [options] input 
 
