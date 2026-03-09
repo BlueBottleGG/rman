@@ -17,7 +17,7 @@ FetchContent_GetProperties(curl)
 if(NOT curl_POPULATED)
     FetchContent_Populate(curl)
     if (WIN32)
-        set(curl_CURL_USE_SCHANNEL ON CACHE INTERNAL "Dont need")
+        set(CURL_USE_SCHANNEL ON CACHE INTERNAL "Dont need")
     endif()
     set(BUILD_CURL_EXE OFF CACHE INTERNAL "Dont need")
     set(BUILD_SHARED_LIBS OFF CACHE INTERNAL "Dont need")
@@ -118,7 +118,7 @@ endif()
 FetchContent_Declare(
     miniz
     GIT_REPOSITORY https://github.com/richgel999/miniz.git
-    GIT_TAG        293d4db1b7d0ffee9756d035b9ac6f7431ef8492
+    GIT_TAG        master
 )
 
 FetchContent_GetProperties(miniz)
