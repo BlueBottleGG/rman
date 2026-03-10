@@ -5,6 +5,7 @@
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <Windows.h>
+#include <algorithm>
 
 #include <rlib/common.hpp>
 #include <rlib/iofile.hpp>
@@ -267,7 +268,7 @@ struct Main {
             size_t bytes_per_thread = std::max(combined_size / cli.job_count, 1ull);
             size_t cur_off = 0;
             // TODO: need to rebalance if some threads gets lots of large files
-            for (size_t i = 0; i < cli.job_count; ++i) {
+            for (size_t i = 0; i < std::min(cli.job_count, file_count); ++i) {
                 size_t start_off = cur_off;
                 size_t end_off = start_off;
                 size_t cur_bytes = 0;
